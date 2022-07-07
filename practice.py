@@ -12,7 +12,8 @@ filename="name.csv"
 fakedata = Faker()
 names=[fakedata.unique.name() for i in range(500)] 
 #makes unigue names 500 customers
-# namelist=[]
+#productname= [fakedata.]
+namelist=[]
 customers={}
 payments={}
 products={}
@@ -20,11 +21,13 @@ products={}
 for i in range(1,501):
     customers[i]=customer(i,names[i-1])
     # print('Current iteration: '+str(i)+' current customer: '+str(customers[i]))
+# for i in range(1,2001):
+#     products[i]=product(i,productname[i-1])
 
-# for i in range(1,10001):
-#     namelist.append(str(i)+','+str(i+3)+fakedata.name()+','+str(i+5))
-# with open(filename,'w',newline='') as csvfile:
-#     namewriter=csv.writer(csvfile, delimiter=',')
-#     namewriter.writerows([namelist])
+for i in range(1,10001):
+    namelist.append(str(i)+','+str(i+3)+fakedata.name()+','+str(i+5))
+with open(filename,'w',newline='') as csvfile:
+    namewriter=csv.writer(csvfile, delimiter=',',quoting=csv.QUOTE_NONE)
+    namewriter.writerows([namelist])
 
 
