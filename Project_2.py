@@ -1,5 +1,7 @@
 #from pyspark.sql import SparkSession
 
+from pydoc import doc
+from tkinter import N, Y
 from faker import Faker
 
 import csv
@@ -44,10 +46,12 @@ import random
 #     namewriter.writerows([namelist])
 
 
-Y = True
-N = False
+accepted = Y
+declined = N
 
 declinedTransaction = ["Card was declined", "Order Cancelled", "Out of Stock", "Card was declined", "Order Cancelled", "Out of Stock"]
+
+do :
 
 while True:
     print(random.choice(declinedTransaction))
