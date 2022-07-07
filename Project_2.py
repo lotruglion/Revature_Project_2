@@ -7,18 +7,28 @@ from faker import Faker
 import csv
 import random
 
-# header = ['order_id', 'customer_id', 'customer_name', 'product_name', 'product_category', 'payment_type', 'qty', 'price', 'datetime', 'country', 'city', 'ecommerce_website_name', 'payment_txn_id', 'payment_txn_success', 'failure_reason']
+ 
+Transactions = [["N, Card was declined"], ["N, Order Cancelled"], ["N, Out of Stock"], ["N, Card was declined"], ["N, Order Cancelled"], ["N, Out of Stock"], 
+["Y"], ["Y"], ["Y"], ["Y"], ["Y"], ["Y"], ["Y"], ["Y"], ["Y"], ["Y"], ["Y"], ["Y"], ["Y"], ["Y"], ["Y"], ["Y"], ["Y"], ["Y"], ["Y"], ["Y"], ["Y"], ["Y"], ["Y"], ["Y"], ["Y"], ["Y"], ["Y"], ["Y"], ["Y"]]
 
-# data = ['1', '1','1','1','1','1','1','1','1','1','1','1','1','1','1','1',]
+header = ["Transaction Success", "Reason for Failure"]
 
-# f = open('project_2_data', 'w')
+data = [Transactions]
 
-# writer = csv.writer(f)
+f = open('project_2_data_Example', 'w')
 
-# writer.writerow(header)
-# writer.writerow(data)
+writer = csv.writer(f)
 
-# f.close()
+writer.writerow(header)
+for transactions in range(10000):
+    writer.writerow(random.choice(Transactions))
+
+
+f.close()
+
+
+
+
 
 
 # doclist=["Physician", "Specialist"]
@@ -44,17 +54,3 @@ import random
 # with open(filename,'w',newline='') as csvfile:
 #     namewriter=csv.writer(csvfile, delimiter=',')
 #     namewriter.writerows([namelist])
-
-
-accepted = Y
-declined = N
-
-declinedTransaction = ["Card was declined", "Order Cancelled", "Out of Stock", "Card was declined", "Order Cancelled", "Out of Stock"]
-
-do :
-
-while True:
-    print(random.choice(declinedTransaction))
-    break
-else:
-    print("")
