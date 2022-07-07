@@ -20,12 +20,11 @@ commerce = {
 ##We have order_id, customer_id, customer_name, product_id, product_name, product_category, qty, price, country, city, 
 ## Do the datetime, and ecommerce_website_name  
 ##columns = ['order_id', 'customer_id', 'customer_name', 'product_id', 'product_name', 'product_category', 'payment_type', 'qty', 'price', 'datetime', 'country', 'city', 'ecommerce_website_name', 'payment_txn_id', 'payment_success', 'faliure_reason']
-columns = ['ecommerce_website_name']
-
-df = pd.DataFrame(columns = columns)
+ecommerce=['ecommerce_website_name']
+df = pd.DataFrame(columns = ecommerce)
 ##save for just in case .keys()
 #list must be made outside of loop when in a loop it become out of scope after loop is done
-ecommerce=[]
+
 #list of keys to traverse through
 randomlist=list(commerce.keys())
 for i in range(100):
