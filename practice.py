@@ -10,12 +10,13 @@ except FileExistsError:
     print('File already exist overwriting')
 filename="name.csv"
 fakedata = Faker()
-names=[fakedata.unique.name() for i in range(500)]
+names=[fakedata.unique.name() for i in range(500)] 
+#makes unigue names 500 customers
 # namelist=[]
 customers={}
 payments={}
 products={}
-
+#using dictionary to randomise where the customerid is the key and the value is the name
 for i in range(1,501):
     customers[i]=customer(i,names[i-1])
     # print('Current iteration: '+str(i)+' current customer: '+str(customers[i]))
