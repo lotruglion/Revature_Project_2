@@ -1,7 +1,6 @@
 ##project 2
 import os 
 import pandas as pd
-import numby
 import random
 import datetime
 
@@ -10,8 +9,6 @@ commerce = {
     'www.eatfresh.com' : 5
     
 } 
-def generate_random_ecommerceemail():
-    ecommercemail = ['www.amazon.com', 'www.eatfresh.com']
  
 ##We have order_id, customer_id, customer_name, product_id, product_name, product_category, qty, price, country, city, 
 ## Do the datetime, and ecommerce_website_name  
