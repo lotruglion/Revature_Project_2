@@ -21,7 +21,7 @@ customer_city = [fakedata.city() for i in range(500)]
 
 product_name= []
 product_category=[]
-product_price= 
+product_price=[] 
 with open("food.csv", "r") as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     for lines in csv_reader:
@@ -41,6 +41,20 @@ with open("cars.csv", "r") as csv_file:
       product_category.append('cars')
       product_price.append(fakedata.randomize_nb_elements(number=10000) )
 
+productWEB = {
+    'www.amazon.com' : 44,
+    'www.eatfresh.com' : 17,
+    'www.eathumanflesh.com' : 2,
+    'www.gogofoods.com' : 12,
+    'www.gainzfood.com' : 13,
+    'www.notsafefoodforyou.com' : 10
+
+} 
+
+
+
+
+
 #product_price = [fakedata.randomize_nb_elements(number= 100,le=True, max= 100) for i in range(2000)]
 
 # for i in range(len(product_category)):
@@ -49,14 +63,14 @@ with open("cars.csv", "r") as csv_file:
 # namelist=[]
 customers={}
 # payments={}
-# products={}
+products={}
 # orders= {}
-# #using dictionary to randomise where the customerid is the key and the value is the name
-# for i in range(1,501):
-#      customers[i]=customer(i,customer_names[i-1],customer_country[i-1],customer_city[i-1])
-#      print(str(customers[i]))
-# # for i in range(1,2001):
-# #      products[i]=product(i,productname[i-1])
+
+for i in range(1,501):
+      customers[i]=customer(i,customer_names[i-1],customer_country[i-1],customer_city[i-1])
+
+for i in range(1,2001):
+      products[i]=product(i,product_name[i-1], product_price[i-1],product_category[i-1],)
 
 # for i in range(1,10001):
 #     namelist.append(str(i)+','+str(i+3)+fakedata.name()+','+str(i+5))
