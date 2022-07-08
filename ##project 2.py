@@ -7,12 +7,16 @@ import datetime
 import csv
 
 commerce = {
-    'www.amazon.com' : 44,
+    'www.amazon.com' : 33,
     'www.eatfresh.com' : 17,
     'www.eathumanflesh.com' : 2,
     'www.gogofoods.com' : 12,
     'www.gainzfood.com' : 13,
-    'www.notsafefoodforyou.com' : 10
+    'www.notsafefoodforyou.com' : 10,
+    'www.foodforall.com' : 26,
+    'www.foodfoodfood.com' : 20,
+    'www.foodforthought.com' : 22,
+    'www.suprisefoodattack' : 15
 } 
  ## the site names are for practice sake not for final product
 
@@ -27,9 +31,12 @@ df = pd.DataFrame(columns = columns)
 
 #list must be made outside of loop when in a loop it become out of scope after loop is done
 ecommerce=[]
+
 #list of keys to traverse through
 randomlist=list(commerce.keys())
+
 mod=6
+
 for i in range(100):
 #rand int to make the website random mod 6 so it does not go out of index
     if len(randomlist)==0:
