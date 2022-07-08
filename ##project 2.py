@@ -1,4 +1,5 @@
 ##project 2
+import math
 import os 
 import pandas as pd
 import random
@@ -6,14 +7,12 @@ import datetime
 import csv
 
 commerce = {
-    ## site and weights
-    'www.amazon.com' : [24],
-    'www.eatfresh.com' : [16],
-    'www.eathumanflesh.com' : [1],
-    'www.gogofoods.com' : [12],
-    'www.gainzfood.com' : [3],
-    'www.notsafefoodforyou' : [4]
-
+    'www.amazon.com' : 44,
+    'www.eatfresh.com' : 17,
+    'www.eathumanflesh.com' : 2,
+    'www.gogofoods.com' : 12,
+    'www.gainzfood.com' : 13,
+    'www.notsafefoodforyou.com' : 10
 } 
  ## the site names are for practice sake not for final product
 
@@ -24,19 +23,37 @@ columns = ['ecommerce_website_name']
 
 df = pd.DataFrame(columns = columns)
 ##save for just in case .keys()
-for i in range(10):
-    ##list comprehension
-    listcommerce = [ecommerce for ecommerce in commerce]
-    ##defining weights
-    weights = [commerce[ecommerce][0]for ecommerce in commerce]
-    ecommerce = random.choices(listcommerce, weights = weights)[0]
-    ##ecommerce = random.choice(list(commerce, weights = weights))[0]
-    price = commerce[ecommerce]
-    df.loc[i] = [i, ecommerce, 1]
+## MAYBE random range between 0-10 = amazon then do the same with the other sites 
+
+#list must be made outside of loop when in a loop it become out of scope after loop is done
+ecommerce=[]
+#list of keys to traverse through
+randomlist=list(commerce.keys())
+mod=6
+for i in range(100):
+#rand int to make the website random mod 6 so it does not go out of index
+    if len(randomlist)==0:
+            break
+    rando=(i+random.randint(0,100))%mod
+    currentsite=randomlist[rando]
+     #we have to make sure the website has not be used completely
+    while commerce[currentsite]==0:
+        print("Random value: "+str(rando)+" Currentsite: "+currentsite+" Currentsite weight left:"+str(commerce[currentsite]))
+        mod= mod-1
+        print("mod: "+str(mod))
+        randomlist.remove(currentsite)
+        if len(randomlist)==0:
+            break
+        rando=0 if mod==0 else (i+random.randint(0,100))%mod
+        currentsite=randomlist[rando]
+    ecommerce.append(currentsite)
+    commerce[currentsite]=commerce[currentsite]-1
+print(ecommerce)
+
 
 df.to_csv('test_data.cvs')
 
-path = "eccommerce mail"
+path = "eccommercemail"
 files = [file for file in os.listdir(path) if not file.startswitch('.')]
 
 data1 = pd.DataFrame()
