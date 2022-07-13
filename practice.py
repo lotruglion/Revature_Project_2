@@ -52,7 +52,8 @@ productWEB = {
 } 
 
 
-
+order_quntity= [fakedata.randomize_nb_elements(number= 10,le=True, max= 20) )]
+order_date=[]
 
 
 #product_price = [fakedata.randomize_nb_elements(number= 100,le=True, max= 100) for i in range(2000)]
@@ -64,13 +65,15 @@ productWEB = {
 customers={}
 # payments={}
 products={}
-# orders= {}
+orders= {}
 
 for i in range(1,501):
       customers[i]=customer(i,customer_names[i-1],customer_country[i-1],customer_city[i-1])
 
 for i in range(1,2001):
       products[i]=product(i,product_name[i-1], product_price[i-1],product_category[i-1],)
+for i in range(1,10001):
+      orders[i]=order(1,)
 
 # for i in range(1,10001):
 #     namelist.append(str(i)+','+str(i+3)+fakedata.name()+','+str(i+5))
