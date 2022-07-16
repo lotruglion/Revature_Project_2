@@ -24,8 +24,10 @@ spark = SparkSession\
 sc = spark.sparkContext
 sqlcontext = SQLContext(spark)
 df_pyspark=spark.read.option('header', 'true').csv('backup.csv')
-# df_pyspark.show()
-df_pyspark.select("product_name", "product_category").where(col("product_category")=="Beverages").show()
+#df_pyspark.show()
+#df_pyspark.select("product_name", "product_category").where(col("product_category")=="Beverages").show()
+df_pyspark.select("product_category","country", "qty").groupBy("country", "product_category").agg({"qty":"sum"}).show()
+
 
 # spark.sql("SELECT customer_name, customer_id FROM backup").show()
 
