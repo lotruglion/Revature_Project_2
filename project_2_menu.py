@@ -26,6 +26,8 @@ sqlcontext = SQLContext(spark)
 df_pyspark=spark.read.option('header', 'true').csv('backup.csv')
 #df_pyspark.show()
 #df_pyspark.select("product_name", "product_category").where(col("product_category")=="Beverages").show()
+
+#question 1
 df_pyspark.select("product_category","country", "qty").groupBy("country", "product_category").agg({"qty":"sum"}).show()
 
 
