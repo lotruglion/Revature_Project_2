@@ -30,7 +30,10 @@ df_pyspark=spark.read.option('header', 'true').csv('backup.csv')
 #question 1
 #df_pyspark.select("product_category","country", "qty").groupBy("country", "product_category").agg({"qty":"sum"}).show()
 #question 3
-df_pyspark.select("qty","city","country").groupBy("country","city").agg({"qty":"sum"}).sort("sum(qty)", ascending =False).show()
+#df_pyspark.select("qty","city","country").groupBy("country","city").agg({"qty":"sum"}).sort("sum(qty)", ascending =False).show()
 
-
+#question 2
+#df_pyspark.select("product_name","datetime").groupBy("datetime").agg({"product_name":"count"}).show()
 #question 4
+df_pyspark.select("qty","datetime").groupBy("datetime").agg({"qty":"sum"}).sort("sum(qty)", ascending =False).show()
+df_pyspark.select("qty","datetime","country").groupBy("country","datetime").agg({"qty":"sum"}).sort("sum(qty)", ascending =False).drop_duplicates(["country"]).show()
