@@ -24,7 +24,7 @@ spark = SparkSession\
 
 sc = spark.sparkContext
 sqlcontext = SQLContext(spark)
-df_pyspark=spark.read.option('header', 'true').csv('backup.csv')
+df_pyspark=spark.read.option('header', 'true').csv('ecom.csv')
 #df_pyspark.show()
 #df_pyspark.select("product_name", "product_category").where(col("product_category")=="Beverages").show()
 
@@ -80,7 +80,7 @@ def highestTrafficCountry():
 #Menu that users will interact with
 def startup():
     while True:
-        print("Group 1's Technology Project")
+        print("Wholesale International Food")
         print("By Nick, Rose, Riley, and JiaYing")
         print('Please input an option from the menu:')
         print('\t1. View Consumer Data gathered within the last two years')
